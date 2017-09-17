@@ -1,3 +1,5 @@
+import numpy as np
+
 class Neuron:
     def __init__(self, n):
         self.w = np.random.rand(n)  # setされた次元数
