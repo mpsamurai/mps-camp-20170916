@@ -1,10 +1,11 @@
 import numpy as np
 
-
 class Layer:
     def __init__(self, m, n):
-        self.W = np.random.rand(m, n)  # m行n列を設定
-        self.b = np.random.rand(m, 1)  # [] m行1列の要素をバイアスに与える
+        self.W = np.random.rand(m,
+                                n) - 0.5  # m行n列を設定  numpyのbroadcastで全ての行列に合わせて -0.5をしてくれるので 0 ~ 1の数を -0.5 ~ 0.5の範囲になる
+        #         self.b = np.random.rand(m, 1)  # [] m行1列の要素をバイアスに与える
+        self.b = np.zeros((m, 1))  # m行1列の　0ベクトルを作成してくれている  http://www.kamishima.net/mlmpyja/nbayes1/ndarray.html
 
     def set_state(self, x):
         s = (self.W.dot(x)) + 1 * self.b
